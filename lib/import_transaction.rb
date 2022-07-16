@@ -1,3 +1,5 @@
+require 'ynab'
+
 class ImportTransaction
   ACCOUNTS_MAP = {
     ENV['M_ACC_ID1'] => ENV['Y_ACC_ID1'],
