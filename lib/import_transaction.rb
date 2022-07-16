@@ -1,8 +1,11 @@
 class ImportTransaction
   ACCOUNTS_MAP = {
+    ENV['M_ACC_ID1'] => ENV['Y_ACC_ID1'],
+    ENV['M_ACC_ID2'] => ENV['Y_ACC_ID2'],
+    ENV['M_ACC_ID3'] => ENV['Y_ACC_ID3'],
   }
 
-  BUDGET_ID = ''
+  BUDGET_ID = ENV['BUDGET_ID']
 
   def initialize(account_id, item)
     @account_id = account_id
