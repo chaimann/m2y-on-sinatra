@@ -1,12 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (7.0.3.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+    concurrent-ruby (1.1.10)
     daemons (1.4.1)
     ethon (0.15.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
     ffi (1.15.5)
+    i18n (1.12.0)
+      concurrent-ruby (~> 1.0)
     json (2.6.2)
+    minitest (5.16.2)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -32,6 +41,8 @@ GEM
     tilt (2.0.10)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     ynab (1.21.0)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
@@ -42,6 +53,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport
   sinatra
   sinatra-contrib
   thin
