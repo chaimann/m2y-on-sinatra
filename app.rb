@@ -5,7 +5,7 @@ require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/string/inflections'
 require_relative './lib/import_transaction'
 
-get '/' do
+get '/callback' do
   200
 end
 
