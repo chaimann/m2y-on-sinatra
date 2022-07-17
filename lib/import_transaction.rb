@@ -2,9 +2,9 @@ require 'ynab'
 
 class ImportTransaction
   ACCOUNTS_MAP = {
-    ENV['M_ACC_ID1'] => ENV['Y_ACC_ID1'],
-    ENV['M_ACC_ID2'] => ENV['Y_ACC_ID2'],
-    ENV['M_ACC_ID3'] => ENV['Y_ACC_ID3'],
+    ENV['MONO_WHITE_ACC_ID'] => ENV['YNAB_WHITE_ACC_ID'],
+    ENV['MONO_BLACK_ACC_ID'] => ENV['YNAB_BLACK_ACC_ID'],
+    ENV['MONO_USD_ACC_ID']   => ENV['YNAB_USD_ACC_ID'],
   }
 
   BUDGET_ID = ENV['BUDGET_ID']
