@@ -1,6 +1,9 @@
 require 'ynab'
 
 class ImportTransaction
+  BUDGET_ID = ENV['BUDGET_ID']
+  USD_BUDGET_ID = ENV['USD_BUDGET_ID']
+
   BUDGETS_MAP = {
     ENV['MONO_WHITE_ACC_ID']  => BUDGET_ID,
     ENV['MONO_BLACK_ACC_ID']  => BUDGET_ID,
@@ -14,9 +17,6 @@ class ImportTransaction
     ENV['MONO_UAH_PE_ACC_ID']   => ENV['YNAB_TRANSIT_ACC_ID'],
     ENV['MONO_USD_PE_ACC_ID']   => ENV['YNAB_USD_ACC_ID'],
   }
-
-  BUDGET_ID = ENV['BUDGET_ID']
-  USD_BUDGET_ID = ENV['USD_BUDGET_ID']
 
   def initialize(account_id, item)
     @account_id = account_id
