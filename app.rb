@@ -4,9 +4,10 @@ require 'sinatra/json'
 require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/string/inflections'
 require_relative './lib/import_transaction'
+use Rack::Logger
 
 get '/callback' do
-  puts 'success'
+  request.logger.info('Success!')
   200
 end
 
