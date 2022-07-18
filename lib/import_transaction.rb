@@ -18,16 +18,22 @@ class ImportTransaction
     ENV['MONO_USD_PE_ACC_ID']   => ENV['YNAB_USD_ACC_ID'],
   }
 
+  attr_reader :error
+
   def initialize(account_id, item)
     @account_id = account_id
     @item = item
   end
 
   def perform
-    ynab_client.transactions.create_transaction(BUDGETS_MAP.fetch[@account_id], transaction_data)
+    ynab_client.transactions.create_transaction(BUDGETS_MAP.fetch(@account_id), transaction_data)
     true
   rescue YNAB::ApiError => e
-    puts "==== ERROR: id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
+    @error = "id=#{e.id}; name=#{e.name}; detail: #{e.detail}"
+    false
+  rescue => e
+    @error = e.inspect
+    false
   end
 
   def transaction_data

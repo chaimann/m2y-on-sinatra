@@ -4,10 +4,9 @@ require 'sinatra/json'
 require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/string/inflections'
 require_relative './lib/import_transaction'
-use Rack::Logger
+use Rack::Logger, 0
 
 get '/callback' do
-  request.logger.info('Success!')
   200
 end
 
@@ -17,6 +16,10 @@ post '/callback' do
   stat_params = payload.deep_transform_keys(&:underscore).deep_transform_keys(&:to_sym).fetch(:data)
   account_id = stat_params.fetch(:account)
   item = stat_params.fetch(:statement_item)
-  ImportTransaction.new(account_id, item).perform
+
+  importer = ImportTransaction.new(account_id, item)
+  result = importer.perform
+  request.logger.error(importer.error) unless result
+
   200
 end
