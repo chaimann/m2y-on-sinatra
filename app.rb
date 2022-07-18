@@ -6,6 +6,7 @@ require 'active_support/core_ext/string/inflections'
 require_relative './lib/import_transaction'
 
 get '/callback' do
+  puts 'success'
   200
 end
 
